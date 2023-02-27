@@ -7,9 +7,7 @@
 build.gradle ver. 2.7.5
 
 
-
-
-
+<p></p>
 
 main - 기술매니저님 자료, 
 
