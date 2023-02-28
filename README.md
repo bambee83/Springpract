@@ -11,4 +11,4 @@ build.gradle ver. 2.7.5
 
 main - 기술매니저님 자료, 
 
-src,  - 세션 자료
+src, src2 - 세션 자료
