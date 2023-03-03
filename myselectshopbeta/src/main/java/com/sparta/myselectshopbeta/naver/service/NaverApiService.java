@@ -13,13 +13,13 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class NaverApiService {  //java 를 이용하여 openApi 와 소통 (document 참고)
+public class NaverApiService {
 
     public List<ItemDto> searchItems(String query) {
         RestTemplate rest = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-Naver-Client-Id", "fddjZDadQ78pKFkTMBdx"); //client id 설정
-        headers.add("X-Naver-Client-Secret", "lqAZ5kIF86");  //client secret 설정
+        headers.add("X-Naver-Client-Id", "ufC7iCHE1eRqXFSjFmTu");
+        headers.add("X-Naver-Client-Secret", "26mXWwGwvw");
         String body = "";
 
         HttpEntity<String> requestEntity = new HttpEntity<String>(body, headers);
