@@ -12,9 +12,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class AllInOneController {
+public class AllInOneController {  //절차적 프로그래밍 방식
 
-    // 관심 상품 등록하기
+    // 관심 상품 등록하기  > jpa 가 처리해주는 반복적인 코드들
     @PostMapping("/products")
     public ProductResponseDto createProduct(@RequestBody ProductRequestDto requestDto) throws SQLException {
         // 요청받은 DTO 로 DB에 저장할 객체 만들기

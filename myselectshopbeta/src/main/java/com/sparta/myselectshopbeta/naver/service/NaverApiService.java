@@ -13,13 +13,13 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class NaverApiService {
+public class NaverApiService {  //지금 당장은 하단 코드를 이해할 필요는 없고, 자바로 네이버 api 와 소통하는 방법 (네이버 dev 다큐먼트 참고)
 
     public List<ItemDto> searchItems(String query) {
         RestTemplate rest = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-Naver-Client-Id", "ufC7iCHE1eRqXFSjFmTu");
-        headers.add("X-Naver-Client-Secret", "26mXWwGwvw");
+        headers.add("X-Naver-Client-Id", ""); // 애플리케이션 등록시 발급된 클라이언드 아이디값
+        headers.add("X-Naver-Client-Secret", ""); // 애플리케이션 등록시 발급된 클라이언트 시크릿키값
         String body = "";
 
         HttpEntity<String> requestEntity = new HttpEntity<String>(body, headers);
@@ -34,7 +34,7 @@ public class NaverApiService {
         return fromJSONtoItems(response);
     }
 
-    public List<ItemDto> fromJSONtoItems(String response) {
+    public List<ItemDto> fromJSONtoItems(String response) {  //내부에서 dto 로 변환이 된는 로직수행
 
         JSONObject rjson = new JSONObject(response);
         JSONArray items  = rjson.getJSONArray("items");

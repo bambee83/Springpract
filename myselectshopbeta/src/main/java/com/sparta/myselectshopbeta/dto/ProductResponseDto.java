@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class ProductResponseDto {
+public class ProductResponseDto {  //productentity 를 dto에 감싸서 보냄, entity 클래스는 조심히 다뤄야 한다.
     private Long id;
     private String title;
     private String link;

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity // DB 테이블 역할을 합니다.
-@NoArgsConstructor
+@NoArgsConstructor //기본 생성자 생성
 public class Product {
 
     @Id
@@ -32,11 +32,11 @@ public class Product {
     @Column(nullable = false)
     private int myprice;
 
-    public Product(ProductRequestDto requestDto) {
+    public Product(ProductRequestDto requestDto) { //생성자주입을 통한 초기값세팅
         this.title = requestDto.getTitle();
         this.image = requestDto.getImage();
         this.link = requestDto.getLink();
         this.lprice = requestDto.getLprice();
-        this.myprice = 0;
+        this.myprice = 0; //처음에 0으로 세팅후 내가 선택한 값을 찾아서 넣어주는 로직구현할예정
     }
 }

@@ -10,12 +10,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@RequiredArgsConstructor
+@RequiredArgsConstructor  //네이버 API 서비스와 연결
 public class NaverApiController {
 
-    private final NaverApiService naverApiService;
+    private final NaverApiService naverApiService;  //필드주입
 
-    @GetMapping("/search")
+    @GetMapping("/search")  // 키워드로 상품 검색하고 그 결과를 목록으로 보여주기
     public List<ItemDto> searchItems(@RequestParam String query)  {
         return naverApiService.searchItems(query);
     }
