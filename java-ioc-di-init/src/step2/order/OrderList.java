@@ -7,10 +7,15 @@ import java.util.stream.Collectors;
 public class OrderList {
 
     private String foodName;
+    private String username;
+    private String password;
 
-    public OrderList(String foodName) {
+    public OrderList(String foodName, String username, String password) {
         this.foodName = foodName;
+        this.username = username;
+        this.password = password;
     }
+
 
     private static List<Order> orderList = new ArrayList<>();
 

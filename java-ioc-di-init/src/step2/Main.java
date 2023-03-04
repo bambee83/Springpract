@@ -6,18 +6,23 @@ import step2.app.OrderApplication;
 import step2.enums.Menu;
 import step2.order.Order;
 import step2.order.OrderList;
+import step2.service.ChickenService;
+import step2.service.OrderService;
+import step2.service.PizzaService;
 
 public class Main {
     public static void main(String[] args) {
 
         // 주문
         Consumer consumer;
+        OrderService orderService;
 
-        consumer = new OrderApplication();
-        consumer.chickenOrder(Menu.Chicken, 2);
+        orderService = new ChickenService(new OrderList("치킨", "이름", "비번"));
+        consumer = new OrderApplication(orderService);
+        consumer.order(Menu.Chicken, 2);
 
         // 주문 내역 확인
-        OrderList orderList = new OrderList("치킨");
+        OrderList orderList = new OrderList("치킨", "이름", "비번");
         for (Order order : orderList.getOrderList()) {
             System.out.println(order.getFoodName());
             System.out.println(order.getPrice());
@@ -25,10 +30,12 @@ public class Main {
             System.out.println();
         }
 
-        consumer.pizzaOrder(Menu.Pizza, 2);
+        orderService = new PizzaService(new OrderList("치킨", "이름", "비번"));
+        consumer = new OrderApplication(orderService);
+        consumer.order(Menu.Pizza, 2);
 
         // 주문 내역 확인
-        orderList = new OrderList("피자");
+        orderList = new OrderList("치킨", "이름", "비번");
         for (Order order : orderList.getOrderList()) {
             System.out.println(order.getFoodName());
             System.out.println(order.getPrice());

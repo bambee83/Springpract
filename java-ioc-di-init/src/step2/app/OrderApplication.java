@@ -2,21 +2,17 @@ package step2.app;
 
 
 import step2.enums.Menu;
-import step2.service.ChickenService;
-import step2.service.PizzaService;
+import step2.service.OrderService;
 
 public class OrderApplication implements Consumer {
 
-    private final ChickenService chickenService  = new ChickenService();
-    private final PizzaService pizzaService  = new PizzaService();
+    private final OrderService orderService;  //final 이라 초기화 필요
+
+    public OrderApplication(OrderService orderService) { // 생성자를 통한 의존성 주입
+        this.orderService = orderService;
+    } //생성자 주입을 통한 초기화
+
 
     @Override
-    public void chickenOrder(Menu menu, int amount) {
-        chickenService.saveOrder(menu, amount);
-    }
-
-    @Override
-    public void pizzaOrder(Menu menu, int amount) {
-        pizzaService.saveOrder(menu, amount);
-    }
+    public void order(Menu menu, int amount) { orderService.saveOrder(menu, amount); }
 }
