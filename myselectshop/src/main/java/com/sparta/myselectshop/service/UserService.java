@@ -19,6 +19,8 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
+
+    // ADMIN TOKEN
     private static final String ADMIN_TOKEN = "AAABnvxRVklrnYxKZ0aHgTBcXukeZygoC";
 
     @Transactional
