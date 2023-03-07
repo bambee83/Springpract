@@ -26,7 +26,7 @@ public class SpringBasicCrudLiveLecture230228Application {
 		SpringApplication.run(SpringBasicCrudLiveLecture230228Application.class, args);
 	}
 
-	@Resource
+	@Resource   //지금은 분석 ㄴㄴ , 나중에 자연스럽게 알게됨 ! 
 	private CourseRepository courseRepository;
 
 	@Bean

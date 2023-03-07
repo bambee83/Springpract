@@ -10,7 +10,7 @@ public class CourseResponseDto {
     private String instructors;
     private Double cost;
 
-    public CourseResponseDto(Course course) {
+    public CourseResponseDto(Course course) {  //dto 로 감싸서 넣어준다 !
         this.id = course.getId();
         this.title = course.getTitle();
         this.instructors = course.getInstructors();

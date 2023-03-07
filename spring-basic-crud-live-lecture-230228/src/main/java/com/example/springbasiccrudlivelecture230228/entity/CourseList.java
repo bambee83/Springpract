@@ -20,7 +20,7 @@ public class CourseList {
     // 강의 등록
     public Course setCourseList(Course course) {
         if(courseList.size() != 0) {
-            course.setId(courseList.get(courseList.size()-1).getId() + 1);
+            course.setId(courseList.get(courseList.size()-1).getId() + 1);  //가장 마지막에 들어간 친구의 아이디에 +1 (id 중복방지)
         } else {
             course.setId(1L);
         }
@@ -62,7 +62,7 @@ public class CourseList {
         return null;
     }
 
-    // database 접근 연습
+    // database 접근 연습(옛날접근박식이다) > 하나의 로직
     public void databaseConnectionExample(Course course) {
         Connection connection = null;
         String url = "jdbc:h2:mem:db";
@@ -82,7 +82,7 @@ public class CourseList {
                 maxId = result.getLong(1);
             }
 
-            query = "INSERT INTO course (id, title, instructors, cost) VALUES (?,?,?,?)";
+            query = "INSERT INTO course (id, title, instructors, cost) VALUES (?,?,?,?)";  //들어오는 값을 동적으로 처리해줌
             PreparedStatement preStatement = connection.prepareStatement(query);
             preStatement.setLong(1, maxId + 1);
             preStatement.setString(2, course.getTitle());

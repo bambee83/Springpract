@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController  //디스패쳐서블릿에 의해서 http 프로토콜을 받아주는 역할
 @RequestMapping("/course")
 public class CourseController {
 
     private final CourseService courseService;
-    private final CourseList courseList;
+    private final CourseList courseList;  //여러개 연결 가능
 
-    @Autowired  //bean 객체를 받아온다 (보통 1개일 때는 생략 가능 )
+    @Autowired  //bean 객체를 받아온다 (보통 1개일 때는 생략 가능 )  생성자를 통한 필드주입
     public CourseController(CourseService courseService, CourseList courseList) {
         this.courseService = courseService;
         this.courseList = courseList;
@@ -27,8 +27,7 @@ public class CourseController {
     // 강의 생성 요청
     @PostMapping("/create")
     public CourseResponseDto createCourse(@RequestBody CourseRequestDto courseRequestDto) {
-        return courseService.createCourse(courseRequestDto);
-    }
+        return courseService.createCourse(courseRequestDto);}
 
     // 특정 강의 정보 요청
     @GetMapping("/{id}")
@@ -45,18 +44,15 @@ public class CourseController {
     // 특정 강의 정보 수정 요청
     @PutMapping("/update")
     public CourseResponseDto updateCourse(@RequestParam Long id, @RequestBody CourseRequestDto courseRequestDto) {
-        return courseService.updateCourse(id, courseRequestDto);  //받아온 거 다 넘겨주기
-    }
+        return courseService.updateCourse(id, courseRequestDto); } //받아온 거 다 넘겨주기
 
     // 특정 강의 삭제 요청
     @DeleteMapping("/delete")
     public String deleteCourse(@RequestParam Long id) {
-        return courseService.deleteCourse(id);
-    }
+        return courseService.deleteCourse(id);}
 
 
-    @PostMapping("/db-test")  //courstlist  통한 접근 ! > jpa를 통한 접근으로 추적불가능
+    @PostMapping("/db-test")  //courslist  통한 접근 ! > jpa를 통한 접근으로 추적불가능
     public void databaseConnectionExample(@RequestBody Course course) {
-        courseList.databaseConnectionExample(course);
-    }
+        courseList.databaseConnectionExample(course);}
 }
