@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Static</title>
+</head>
+<body>
+<p>방문자 수 : </p>
+<input type='text' id='visit' value='0' style="width: 100px;">
+<input onclick="pushBtn()" type="button" value="누르세요">
+</body>
+<script>
+    let visit = 0;
+    function pushBtn( ) {
+        visit += 1;
+        document.getElementById("visit").value = visit;
+    }
+</script>
+</html>
