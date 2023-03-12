@@ -34,7 +34,7 @@ public class Product extends Timestamped{
     @Column(nullable = false)
     private int myprice;
 
-    @Column(nullable = false)
+    @Column(nullable = false) //등록회원만 회원가입할 수 있음 !
     private Long userId;
 
     @ManyToMany
@@ -46,7 +46,7 @@ public class Product extends Timestamped{
         this.link = requestDto.getLink();
         this.lprice = requestDto.getLprice();
         this.myprice = 0;
-        this.userId = userId;
+        this.userId = userId; //생성자 생성 시 UserId 같이 생성
     }
 
     public void update(ProductMypriceRequestDto requestDto) {

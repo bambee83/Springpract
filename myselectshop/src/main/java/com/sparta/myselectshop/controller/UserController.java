@@ -28,12 +28,12 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup(SignupRequestDto signupRequestDto) {
+    public String signup(SignupRequestDto signupRequestDto) { //ModelAttribute 형식으로 받아와짐
         userService.signup(signupRequestDto);
         return "redirect:/api/user/login";
     }
 
-    @ResponseBody
+    @ResponseBody // ajax 에서 body 에 값이 넘어와서 꼭 넣어줘야 한다.
     @PostMapping("/login")
     public String login(@RequestBody LoginRequestDto loginRequestDto, HttpServletResponse response) {
         userService.login(loginRequestDto, response);

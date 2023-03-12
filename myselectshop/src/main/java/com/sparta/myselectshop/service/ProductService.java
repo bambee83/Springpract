@@ -31,7 +31,7 @@ public class ProductService {
 
     private final FolderRepository folderRepository;
     private final ProductRepository productRepository;
-    private final UserRepository userRepository;
+    private final UserRepository userRepository; //유저 검증위해서 필요
     private final JwtUtil jwtUtil;
 
     @Transactional
@@ -98,8 +98,8 @@ public class ProductService {
 
             if (userRoleEnum == UserRoleEnum.USER) {
                 // 사용자 권한이 USER일 경우
-                products = productRepository.findAllByUserId(user.getId(), pageable);
-            } else {
+                products = productRepository.findAllByUserId(user.getId(), pageable); //유저아이디와 동일한 상품만 가져와서 담아주기
+            } else {  //어드민계정은 모든 상품 다 가지고 온다
                 products = productRepository.findAll(pageable);
             }
 

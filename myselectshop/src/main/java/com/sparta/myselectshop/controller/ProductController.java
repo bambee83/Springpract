@@ -32,7 +32,7 @@ public class ProductController {
             @RequestParam("size") int size,
             @RequestParam("sortBy") String sortBy,
             @RequestParam("isAsc") boolean isAsc,
-            HttpServletRequest request
+            HttpServletRequest request  //헤더에 들어있는 토큰값을 가져와야 한다.
     ) {
         // 응답 보내기
         return productService.getProducts(request, page-1, size, sortBy, isAsc);

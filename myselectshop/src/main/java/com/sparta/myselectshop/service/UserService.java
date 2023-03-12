@@ -18,7 +18,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil; //빈동록되어있어서 주입가능 !
 
     // ADMIN TOKEN
     private static final String ADMIN_TOKEN = "AAABnvxRVklrnYxKZ0aHgTBcXukeZygoC";
@@ -61,7 +61,7 @@ public class UserService {
         if(!user.getPassword().equals(password)){
             throw  new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
         }
-
+        // 키값에는 AUTHORIZATION_HEADER , createToken 메소드를 통해 토큰 생성 (위에서 가져온 유저의 이름과 권한 넣어주기) > JWTUtil 의존성 주입
         response.addHeader(JwtUtil.AUTHORIZATION_HEADER, jwtUtil.createToken(user.getUsername(), user.getRole()));
     }
 }
