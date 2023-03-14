@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public class CourseRawRepository {
 
-    @PersistenceContext
+    @PersistenceContext //영속성 , 오토와이어같은거임
     EntityManager em;
 
     // 강의 등록
@@ -25,13 +25,13 @@ public class CourseRawRepository {
     // 강의 조회
     @Transactional
     public Optional<Course> findById(Long id) {
-        Course course = em.find(Course.class, id);
-        return Optional.ofNullable(course);
+        Course course = em.find(Course.class, id);  //Course 라는 테이블에서 내가 보낸 id 값을 받아올거야
+        return Optional.ofNullable(course);  //optional 공부하기 > nullPointException 처리해줘야 함
     }
 
     // 강의 수정
     @Transactional
-    public void updateCost(Long id, double cost) {
+    public void updateCost(Long id, double cost) {  // 아이디 받아오고 cost 바꿀거야
         // 수정할 강의 조회
         Course course = em.find(Course.class, id);
 

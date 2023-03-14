@@ -17,7 +17,7 @@ class CourseTest {
     @Test
     @Transactional
     void test() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("test"); //persistence 객체에 메소드 호출
         EntityManager em = emf.createEntityManager();
 
         EntityTransaction et = em.getTransaction();

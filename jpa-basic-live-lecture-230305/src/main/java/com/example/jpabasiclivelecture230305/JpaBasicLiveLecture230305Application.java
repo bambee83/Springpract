@@ -1,5 +1,6 @@
 package com.example.jpabasiclivelecture230305;
 
+import com.example.jpabasiclivelecture230305.entity.Course;
 import com.example.jpabasiclivelecture230305.repository.CourseRawRepository;
 import com.example.jpabasiclivelecture230305.repository.CourseRepository;
 import com.example.jpabasiclivelecture230305.service.CourseService;
@@ -17,7 +18,7 @@ public class JpaBasicLiveLecture230305Application {
     }
 
     @Autowired
-    CourseRawRepository courseRawRepository;
+    CourseRawRepository courseRawRepository;  // 등록된 빈을 필드주입
 
     @Autowired
     CourseRepository courseRepository;
@@ -29,13 +30,13 @@ public class JpaBasicLiveLecture230305Application {
     ApplicationRunner applicationRunner() {
         return args -> {
             // Raw JPA
-            // 등록
+            // 등록 > 비영속 상태임
 //            Course course = new Course();
 //            course.setId(1L);
 //            course.setTitle("JPA");
 //            course.setInstructors("robbie");
 //            course.setCost(100000.0);
-//
+                // 영속화
 //            courseRawRepository.save(course);
 
             // 조회
@@ -54,7 +55,7 @@ public class JpaBasicLiveLecture230305Application {
 
 
             // Spring Data JPA
-            // 등록
+            // 등록 >> 등록할때 왜 Hibernate 에서 select 문을 날릴까?
 //            Course course = new Course();
 //            course.setId(1L);
 //            course.setTitle("Spring");
@@ -89,7 +90,7 @@ public class JpaBasicLiveLecture230305Application {
             // AOP 로 동작하기 때문에 Bean 으로 등록된 객체에만 적용 가능!
 
             // 외부 Bean 등록 객체를 통해 변경감지 Test
-            courseService.update();
+//            courseService.update();
 
 
             // 삭제
